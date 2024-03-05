@@ -56,16 +56,6 @@ const CartScreen = () => {
             ))
           )}
         </div>
-
-        <div className="cartscreen__right">
-          <div className="cartscreen__info">
-            <p>Subtotal ({getCartCount()}) items</p>
-            <p>${getCartSubTotal()}</p>
-          </div>
-          <div>
-            <button>Proceed To Checkout</button>
-          </div>
-        </div>
       </div>
     </>
   );
