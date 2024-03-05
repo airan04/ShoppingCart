@@ -2,8 +2,6 @@ import "./Product.css";
 import { Link } from "react-router-dom";
 import { addToCart } from "../redux/actions/cartActions";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { getProductDetails } from "../redux/actions/productActions";
 
 const Product = ({ imageUrl, description, price, name, productId, match }) => {
   const dispatch = useDispatch();
@@ -44,9 +42,11 @@ const Product = ({ imageUrl, description, price, name, productId, match }) => {
         <button
           type="button"
           onClick={addToCartHandler}
+          className="addBtn"
         >
           Add To Cart
         </button>
+
       </div>
     </div>
   );
