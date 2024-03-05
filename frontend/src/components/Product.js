@@ -10,15 +10,15 @@ const Product = ({ imageUrl, description, price, name, productId, match }) => {
 
   const productDetails = useSelector((state) => state.getProductDetails);
   const { loading, error, product } = productDetails;
-
-  useEffect(() => {
-    if (product && id !== product._id) {
-      dispatch(getProductDetails(id));
-    }
-  }, [dispatch, match, product]);
+  console.log(productDetails);
+  // useEffect(() => {
+  //   if (product && product) {
+  //     dispatch(getProductDetails(productId));
+  //   }
+  // }, [dispatch, match, product]);
 
   const addToCartHandler = () => {
-    dispatch(addToCart(product._id, 1));
+    dispatch(addToCart(productId, 1));
   };
 
   return (
