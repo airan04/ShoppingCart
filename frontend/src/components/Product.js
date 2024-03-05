@@ -1,19 +1,10 @@
 import "./Product.css";
 import { Link } from "react-router-dom";
 import { addToCart } from "../redux/actions/cartActions";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
-const Product = ({ imageUrl, description, price, name, productId, match }) => {
+const Product = ({ imageUrl, description, price, name, productId }) => {
   const dispatch = useDispatch();
-
-  const productDetails = useSelector((state) => state.getProductDetails);
-  const { loading, error, product } = productDetails;
-  console.log(productDetails);
-  // useEffect(() => {
-  //   if (product && product) {
-  //     dispatch(getProductDetails(productId));
-  //   }
-  // }, [dispatch, match, product]);
 
   const addToCartHandler = () => {
     dispatch(addToCart(productId, 1));
@@ -41,12 +32,13 @@ const Product = ({ imageUrl, description, price, name, productId, match }) => {
         </Link>
         <button
           type="button"
-          onClick={addToCartHandler}
+          onClick={() => {
+            addToCartHandler();
+          }}
           className="addBtn"
         >
           Add To Cart
         </button>
-
       </div>
     </div>
   );

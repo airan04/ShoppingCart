@@ -1,5 +1,5 @@
 import "./HomeScreen.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 // Components
@@ -7,12 +7,19 @@ import Product from "../components/Product";
 
 //Actions
 import { getProducts as listProducts } from "../redux/actions/productActions";
+import CartDrawer from "../components/Drawer";
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
 
   const getProducts = useSelector((state) => state.getProducts);
   const { products, loading, error } = getProducts;
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDrawer = (newOpen) => () => {
+    setIsOpen(newOpen);
+  };
 
   useEffect(() => {
     dispatch(listProducts());
@@ -39,6 +46,10 @@ const HomeScreen = () => {
           ))
         )}
       </div>
+      <CartDrawer
+        isOpen={isOpen}
+        toggleDrawer={toggleDrawer}
+      />
     </div>
   );
 };

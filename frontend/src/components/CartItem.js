@@ -1,5 +1,6 @@
 import "./CartItem.css";
 import { Link } from "react-router-dom";
+import { Delete } from "@mui/icons-material";
 
 const CartItem = ({ item, qtyChangeHandler, removeHandler }) => {
   return (
@@ -35,7 +36,7 @@ const CartItem = ({ item, qtyChangeHandler, removeHandler }) => {
         className="cartItem__deleteBtn"
         onClick={() => removeHandler(item.product)}
       >
-        <i className="fa-solid fa-trash"></i>
+        <Delete />
       </button>
     </div>
   );
